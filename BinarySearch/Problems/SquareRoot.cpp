@@ -29,4 +29,5 @@ int SquareRoot(int n)
 
 int main()
 {
+    cout << "Square root of 36 is " << SquareRoot(36) << endl;
 }
