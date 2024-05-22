@@ -27,7 +27,25 @@ int SquareRoot(int n)
     return ans;
 }
 
+double morePrecision(int n, int precision, int tempsol)
+{
+    double factor = 1;
+    double ans = tempsol;
+    for (int i = 0; i < precision; i++)
+    {
+        factor = factor / 10;
+        for (double j = ans; j * j < n; j = j + factor)
+        {
+            ans = j;
+        }
+    }
+    return ans;
+}
+
 int main()
 {
-    cout << "Square root of 36 is " << SquareRoot(36) << endl;
+
+    int tempsoln = SquareRoot(37);
+    cout
+        << "Square root of 36 is " << morePrecision(37, 3, tempsoln) << endl;
 }
