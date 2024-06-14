@@ -22,3 +22,21 @@ int countPrimes(int n)
     }
     return cnt;
 }
+
+int HCF(int n1, int n2)
+{
+    if (a == 0)
+        return b;
+
+    if (b == 0)
+        return a;
+
+    while (a != b)
+    {
+        if (a > b)
+            a = a - b;
+        else
+            b = b - a;
+    }
+    return a;
+}
