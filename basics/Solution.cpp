@@ -15,7 +15,7 @@ public:
             }
             if (ans < INT32_MAX / 2)
                 ans = ans * 2;
-        }
+        }s
         return false;
     }
 };
