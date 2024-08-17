@@ -66,6 +66,11 @@ void deleteNode(Node *&tail, int value)
         }
         prev->next = curr->next;
 
+        if (curr == prev)
+        {
+            tail = NULL;
+        }
+
         if (tail == curr)
         {
             tail = prev;
@@ -78,6 +83,13 @@ void deleteNode(Node *&tail, int value)
 void print(Node *&tail)
 {
     Node *temp = tail;
+
+    if (tail == NULL)
+    {
+        cout << "List is empty" << endl;
+        return;
+    }
+
     do
     {
         cout << tail->data << " ";
@@ -86,18 +98,37 @@ void print(Node *&tail)
     cout << endl;
 }
 
+bool isCircularList(Node *head)
+{
+    if (head == NULL)
+    {
+        return true;
+    }
+
+    Node *temp = head->next;
+    while (temp != NULL && temp != head)
+    {
+        temp = temp->next;
+    }
+    if (temp == head)
+    {
+        return true;
+    }
+    return false;
+}
+
 int main()
 {
     Node *tail = NULL;
 
     insertNode(tail, 5, 3);
-    insertNode(tail, 3, 5);
-    insertNode(tail, 5, 7);
-    insertNode(tail, 5, 6);
-    insertNode(tail, 3, 4);
+    // insertNode(tail, 3, 5);
+    // insertNode(tail, 5, 7);
+    // insertNode(tail, 5, 6);
+    // insertNode(tail, 3, 4);
     print(tail);
-    deleteNode(tail, 7);
+    deleteNode(tail, 3);
     print(tail);
-
+    cout << "  yes or No is " << isCircularList(tail) << endl;
     return 0;
 }

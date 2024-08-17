@@ -89,6 +89,65 @@ void deleteNode(int position, Node *&head)
         delete cur;
     }
 }
+Node *floydDetectLoop(Node *head)
+{
+    if (head == NULL)
+        return NULL;
+
+    Node *slow = head;
+    Node *fast = head;
+
+    while (slow != NULL && fast != NULL)
+    {
+        fast = fast->next;
+        if (fast != NULL)
+        {
+            fast = fast->next;
+        }
+        slow = slow->next;
+        if (slow == fast)
+        {
+            return slow;
+        }
+    }
+    return NULL;
+}
+
+Node *getStartingNode(Node *head)
+{
+    if (head == NULL)
+    {
+        return NULL;
+    }
+
+    Node *interesection = floydDetectLoop(head);
+    Node *slow = head;
+
+    while (slow != interesection)
+    {
+        slow = slow->next;
+        interesection = interesection->next;
+    }
+    return slow;
+}
+
+void removeLoop(Node *head)
+{
+    if (head == = NULL)
+    {
+        return;
+    }
+
+    Node *startOfLoop = getStartingNode(head);
+    Node *temp = startOfLoop;
+
+    while (temp->next != startOfLoop)
+    {
+        temp = temp->next;
+    }
+
+    temp->next = NULL;
+}
 
 void print(Node *&head)
 {
@@ -117,10 +176,16 @@ int main()
     print(head);
 
     insertAtMiddle(head, tail, 4, 22);
-    print(head);
+    // print(head);
+    if (floydDetectLoop(head) != NULL)
+    {
+        cout << "Cycle is present" << endl;
+    }
+    else
+    {
+        cout << "Cycle isnot present" << endl;
+    }
 
-    deleteNode(1, head);
-    print(head);
-
+    cout << getStartingNode(head)->next << endl;
     return 0;
 }
