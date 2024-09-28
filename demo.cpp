@@ -219,7 +219,7 @@ int reverseInteger(int num)
 
 int main()
 {
-    cout << "SUBODH RANA \nURN: 2302689\n";
+    cout << "VIKRAM YADAV \nURN: 2302708\n";
     int number;
     cout << "Enter an integer: ";
     cin >> number;

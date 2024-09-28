@@ -46,7 +46,8 @@
     "list": "cpp",
     "map": "cpp",
     "set": "cpp",
-    "string.h": "c"
+    "string.h": "c",
+    "regex": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }
