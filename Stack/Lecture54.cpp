@@ -2,6 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/*Method 1 : Using Array Implementation*/
 class Stack
 {
 
@@ -64,6 +65,70 @@ public:
         {
             return false;
         }
+    }
+};
+
+/*Method 2 : using linked list*/
+class Node
+{
+public:
+    int data;   // Make data public so it can be accessed in other parts of the code
+    Node *next; // Pointer to the next node
+};
+
+class myStack
+{
+    Node *head;    // Points to the top of the stack
+    int stackSize; // Keeps track of the size of the stack
+
+public:
+    myStack()
+    {
+        head = NULL;
+        stackSize = 0;
+    }
+
+    void push(int g)
+    {
+        Node *temp = new Node();
+        temp->data = g;
+        temp->next = head; // The new node points to the current head
+        head = temp;       // Update head to point to the new node
+        stackSize++;       // Increment stack size
+    }
+
+    void pop()
+    {
+        if (head == NULL)
+        {
+            cout << "Stack is empty, cannot pop.\n";
+            return;
+        }
+
+        Node *temp = head;
+        head = temp->next; // Move head to the next node
+        delete temp;       // Free memory of the popped node
+        stackSize--;       // Decrement stack size
+    }
+
+    int top()
+    {
+        if (head == NULL)
+        {
+            cout << "Stack is empty.\n";
+            return -1; // Return -1 or any invalid value if the stack is empty
+        }
+        return head->data; // Return the value at the top of the stack
+    }
+
+    int size()
+    {
+        return stackSize; // Return the current size of the stack
+    }
+
+    bool isEmpty()
+    {
+        return head == NULL; // Return true if stack is empty, false otherwise
     }
 };
 
