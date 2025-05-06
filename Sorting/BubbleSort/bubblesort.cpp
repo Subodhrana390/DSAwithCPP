@@ -24,6 +24,12 @@ void BubbleSort(int arr[], int n)
 int main()
 {
     int arr[] = {10, 1, 2, 9, 7};
+
+    cout << "Original Array Elements :" for (int i = 0; i < 5; i++)
+    {
+        cout << arr[i] << endl;
+    }
+
     BubbleSort(arr, 5);
     for (int i = 0; i < 5; i++)
     {

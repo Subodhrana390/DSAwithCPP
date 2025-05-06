@@ -52,16 +52,22 @@ void mergeSort(int *arr, int s, int e)
     mergeSort(arr, mid + 1, e);
 
     merge(arr, s, e);
-
-    delete[] first;
-    delete[] second;
 }
 
 int main()
 {
+    cout << "Subodh Rana URN : 2302689\n";
     int arr[5] = {2, 5, 1, 6, 9};
     int n = 5;
+    cout<<"Using Merge Sort "<<endl;
+    cout << "Original UnSorted Array" << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
     mergeSort(arr, 0, n - 1);
+    cout << "Sorted Array " << endl;
     for (int i = 0; i < n; i++)
     {
         cout << arr[i] << " ";
